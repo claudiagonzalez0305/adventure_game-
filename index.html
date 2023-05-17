@@ -159,9 +159,19 @@
             }else if("treasure" == what.name){
                 sprites[0].score += what.points
                 remove(what)
+            }else if("zombie" == what.name){
+                //FIGHT!
+                zombie_role = Math.round(Math.random() * 6)
+                hero_role = Math.round(Math.random() * 6) 
+                if(hero_role >= zombie_role){
+                    sprites[0].score += what.points
+                    remove(what)    
+                }else{
+                    lives -= 1
             }
-            render();
         }
+            render();
+    }
     
         up.addEventListener("click", arrowClick)
         down.addEventListener("click", arrowClick)
